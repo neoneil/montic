@@ -71,9 +71,18 @@ header.fixed {
  position: relative;
 }
 
-.Educationquestion{
+.educationqualification{
   float: right;
-  margin-right:13%;
+  margin-right:63%;
+  display: block;
+  height: 38px;
+  width: 38px;
+  background: url(-coresrc/img/question.png) no-repeat 50%;
+  position: relative;
+}
+.educationQualification{
+  float: right;
+  margin-right:5%;
   display: block;
   height: 38px;
   width: 38px;
@@ -221,11 +230,12 @@ By Qinqian Wu
 	color: #FFF;
 	font-size: 13px;
 	line-height: 1.4;
+  z-index: 90;
 }
 
 .help-tip p:before{
 	position: absolute;
-
+  opacity: 100%;
 	width:0;
 	height: 0;
 	border:6px solid transparent;

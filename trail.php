@@ -13,6 +13,12 @@
          $backValue=$backValue." ".$value;
       }
 
+      // $tra = $trans;
+      //
+      // echo $tra[0]." ".$tra[1]." ".$tra[2]." ".$tra[3]." ".$tra[4]." ".$tra[5]." ".$tra[6]." ".$tra[7]." ".$tra[8]." ".$tra[9];
+
+
+
       setcookie('mycookie',$backValue);
 
 ?>

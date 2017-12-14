@@ -134,7 +134,12 @@
                 <!-- Educaton Qualificaton section -->
                 <div class="section">
                     <div class="title1">
-                        <h4>Education Qualifications</h4>
+                        <h4>Education Qualifications
+                          <div class="educationqualification">
+                            <div class="help-tip">
+                        			<p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                        		</div>
+                          </div></h4>
                     </div>
                     <div class="form-group">
                         <label class="radio">
@@ -318,13 +323,14 @@
         info.push(btover);
         innovation = parseInt($("input[name='innovation']:checked").val());
         info.push(innovation);
-        nomination = 0;
+
         if ($("input[name='nomination']").is(':checked')) {
-            var nomination = 10;
+             nomination = 10;
         }
         info.push(nomination);
+        info.push($('input[type=radio][name=innovation]:checked').attr('id'));
         var flag = false;
-        for (var i = 0; i < info.length; i++) {
+        for (var i = 0; i < info.length-1; i++) {
             isNaN(info[i]) ? flag = true : sum += info[i];
         }
         if (flag) {
@@ -342,7 +348,7 @@
             $('#results').append('<div  style="padding:10px 10px"><button type="button" class="btn btn-sm btn-primary" style="margin: 5px 5px 20px 5px" id="btn_print" onclick="print()">Print</button><button type="button" class="btn btn-sm btn-primary" style="margin: 5px 5px 20px 5px" id="btn_detail" onclick="inputDetails()">Detail</button><div>');
 
         }
-
+          info.push(sum);
           my_data=escape(my_data)+"";
           $.ajax({
           url: "trail.php",
@@ -408,6 +414,8 @@
                             'Net Business and Personal Assets Business: ' + pab,
                             'Business Turnover: ' + btover,
                             'Innovation: ' + innovation,
+                            'Nomination: ' + nomination,
+
                         ]
                     }
                 ],
