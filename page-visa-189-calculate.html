@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Visa 189 Calculate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Loading Bootstrap -->
+    <link href="-coresrc/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="-coresrc/dist/css/flat-ui.css" rel="stylesheet">
+    <!-- Loading custom UI-->
+    <link href="custom.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="dist/js/vendor/html5shiv.js"></script>
+      <script src="dist/js/vendor/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="-coresrc/dist/js/vendor/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="-coresrc/dist/js/flat-ui.min.js"></script>
+    <script src="-coresrc/assets/js/application.js"></script>
+    <!-- layer js -->
+    <script src="-coresrc/layer/layer.js"></script>
+    <!-- PDFmake-->
+    <script src='-coresrc/build/pdfmake.min.js'></script>
+    <script src='-coresrc/build/vfs_fonts.js'></script>
+    <!-- LayerFunction-->
+    <script>
+    $('button:not([type="submit"])').on('click', function(e) {
+        var $this = $(this);
+
+        if (!!$this.attr('data-radiocheck-check')) {
+            var el = $this.attr('data-radiocheck-check');
+            $(el).radiocheck('check');
+        } else if (!!$this.attr('data-radiocheck-uncheck')) {
+            var el = $this.attr('data-radiocheck-uncheck');
+            $(el).radiocheck('uncheck');
+        } else if (!!$this.attr('data-radiocheck-toggle')) {
+            var el = $this.attr('data-radiocheck-toggle');
+            $(el).radiocheck('toggle');
+        } else if (!!$this.attr('data-radiocheck-indeterminate')) {
+            var el = $this.attr('data-radiocheck-indeterminate');
+            $(el).radiocheck('indeterminate');
+        } else if (!!$this.attr('data-radiocheck-determinate')) {
+            var el = $this.attr('data-radiocheck-determinate');
+            $(el).radiocheck('determinate');
+        } else if (!!$this.attr('data-radiocheck-disable')) {
+            var el = $this.attr('data-radiocheck-disable');
+            $(el).radiocheck('disable');
+        } else if (!!$this.attr('data-radiocheck-enable')) {
+            var el = $this.attr('data-radiocheck-enable');
+            $(el).radiocheck('enable');
+        } else if (!!$this.attr('data-radiocheck-destroy')) {
+            var el = $this.attr('data-radiocheck-destroy');
+            $(el).radiocheck('destroy');
+        } else if (!!$this.attr('data-radiocheck-init')) {
+            var el = $this.attr('data-radiocheck-init');
+            $(el).radiocheck();
+        }
+
+        e.preventDefault();
+    });
+    </script>
+</head>
+
+<body>
+    <header class="fixed">
+        <div style="text-align: center;">
+            <img src="-coresrc/img/header.jpg" style="height: 50px;">
+        </div>
+    </header>
+    <div class="back_container">
+        <div class="container">
+            <div class="head1">
+                <h3>189 Visa</h1>
+            </div>
+            <!-- form start -->
+            <form role="form">
+                <!-- Age section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Age
+                        <div class="Agequestion">
+                          <div class="help-tip">
+                      			<p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                      		</div>
+                        </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age18" value="0" data-radiocheck-toggle="radio"> younger than 18
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age24" value="25" data-radiocheck-toggle="radio"> 18~24
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age32" value="30" data-radiocheck-toggle="radio"> 25~32
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age39" value="25" data-radiocheck-toggle="radio"> 33-39
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age44" value="15" data-radiocheck-toggle="radio"> 40-44
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age49" value="0" data-radiocheck-toggle="radio"> 45-49
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="ageother" value="0" data-radiocheck-toggle="radio"> other
+                        </label>
+                    </div>
+                </div>
+                <!-- End of age section -->
+                <!-- Language section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Language
+                          <div class="Languagequestion">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="NoIELTS" value="0" data-radiocheck-toggle="radio">No IELTS
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="IELTS5" value="0" data-radiocheck-toggle="radio"> IELTS 6 on each of 4
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="IELTS7" value="10" data-radiocheck-toggle="radio"> IELTS 7 on each of 4
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="IELTS8" value="20" data-radiocheck-toggle="radio"> IELTS 8 on each of 4
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="IELTS-cpt" value="0" data-radiocheck-toggle="radio"> competitive
+                        </label>
+                    </div>
+                </div>
+                <!-- End of language section -->
+                <!-- Educaton Qualificaton section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Educational Qualifications (Australian or recognised overseas)
+                          <div class="Educationquestion">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu1" value="0" data-radiocheck-toggle="radio">No Valid Education
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu2" value="10" data-radiocheck-toggle="radio">Offshore Recognised Apprenticeship
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu3" value="10" data-radiocheck-toggle="radio">AQFIII/IV Completed in Australia
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu4" value="10" data-radiocheck-toggle="radio">Diploma Completed in Australia
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu5" value="15" data-radiocheck-toggle="radio">Bechelor Degree
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu6" value="15" data-radiocheck-toggle="radio">Master Degree
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu7" value="20" data-radiocheck-toggle="radio">PHD
+                        </label>
+                    </div>
+                </div>
+                <!-- End of Education Qualification section -->
+                <!-- Overseas Working Exp section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Overseas Working Experience
+                          <div class="Overseasquestion">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="owexp" id="owexp1" value="0" data-radiocheck-toggle="radio"> Less Than 3 Years
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="owexp" id="owexp2" value="5" data-radiocheck-toggle="radio">3 years
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="owexp" id="owexp3" value="10" data-radiocheck-toggle="radio">5 years
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="owexp" id="owexp4" value="15" data-radiocheck-toggle="radio">8 years
+                        </label>
+                    </div>
+                </div>
+                <!-- Overseas Working Exp section -->
+                <!-- Australian Working Exp section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Australian Working Experience
+                          <div class="Workingquestion">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="auexp" id="auexp1" value="0" data-radiocheck-toggle="radio"> Less Than 1 Year
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="auexp" id="auexp2" value="5" data-radiocheck-toggle="radio">1 year
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="auexp" id="auexp3" value="10" data-radiocheck-toggle="radio">3 years
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="auexp" id="auexp4" value="15" data-radiocheck-toggle="radio">5 years
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="auexp" id="auexp4" value="20" data-radiocheck-toggle="radio">8 years
+                        </label>
+                    </div>
+                </div>
+                <!-- Australian Working Exp section -->
+                <!-- study in a regional area section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Study/Live In A Regional Area
+                          <div class="Studyquestion">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="styRA" id="styRA1" value="0" data-radiocheck-toggle="radio">Less than 2 years
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="styRA" id="styRA2" value="5" data-radiocheck-toggle="radio"> 2 years or more
+                        </label>
+                    </div>
+                </div>
+                <!-- study in a regional area section -->
+                <!-- Recognition of Australian Study section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Recognition of Australian Study
+                          <div class="Recognitionquestion">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="austy" id="austy1" value="0" data-radiocheck-toggle="radio">Less than 2 years
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="austy" id="austy2" value="5" data-radiocheck-toggle="radio">2 years or more
+                        </label>
+                    </div>
+                </div>
+                <!-- Recognition of Australian Study section -->
+                <!-- Designated Language section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Designated Language
+                          <div class="DesignatedLanguage">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="dl" id="dl1" value="0" data-radiocheck-toggle="radio">No Designated Language Certification
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="dl" id="dl2" value="5" data-radiocheck-toggle="radio">The National Accreditation Authority for Translators (level 3)/Interpreters (level 2)
+                        </label>
+                    </div>
+                </div>
+                <!-- Recognition of Australian Study section -->
+                <!-- Professional Year section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Professional Year
+                          <div class="ProfessionalYear">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="py" id="py1" value="0" data-radiocheck-toggle="radio">Not complete an approved Professional Year
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="py" id="py2" value="5" data-radiocheck-toggle="radio">Complete an approved Professional Year
+                        </label>
+                    </div>
+                </div>
+                <!-- Professional Year section -->
+                <!-- Partner Skills section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Partner Skills
+                          <div class="PartnerSkills">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="ps" id="ps1" value="0" data-radiocheck-toggle="radio">Not Have An Eligible Partner
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="ps" id="ps2" value="5" data-radiocheck-toggle="radio">Have An Eligible Partner
+                        </label>
+                    </div>
+                </div>
+                <!-- Partner Skills section -->
+                <!-- Sponsorship by state or territory government section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Sponsorship by state or territory government
+                          <div class="SponsorshipState">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox" for="checkbox1">
+                            <input type="checkbox" data-toggle="checkbox" name="stn" id="checkbox1" value="5" required>State or Territory Government
+                        </label>
+                    </div>
+                </div>
+                <!-- Sponsorship by state or territory government section -->
+                <!-- Sponsorship by family to regional Australia section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Sponsorship by family to regional Australia
+                          <div class="SponsorshipFamily">
+                            <div class="help-tip">
+                              <p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                            </div>
+                          </div>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox" for="checkbox2">
+                            <input type="checkbox" data-toggle="checkbox" name="sfn" id="checkbox2" value="10" required>State or Territory Government
+                        </label>
+                    </div>
+                </div>
+                <!-- Sponsorship by family to regional Australia section -->
+                <!-- submit button -->
+                <button type="button" class="btn btn-sm btn-primary" style="margin: 5px 0 20px 0" id="btn_submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- modified js -->
+    <script>
+    var sum = 0;
+    var age = 0;
+    var lan = 0;
+    var edu = 0;
+    var owexp = 0;
+    var auexp = 0;
+    var styRA = 0;
+    var austy = 0;
+    var dl = 0;
+    var py = 0;
+    var ps = 0;
+    var stn = 0;
+    var sfn = 0;
+
+    $('#btn_submit').on('click', function() {
+        sum = 0;
+        age = 0;
+        lan = 0;
+        edu = 0;
+        owexp = 0;
+        auexp = 0;
+        styRA = 0;
+        austy = 0;
+        dl = 0;
+        py = 0;
+        ps = 0;
+        stn = 0;
+        sfn = 0;
+
+        var info = new Array();
+        age = parseInt($("input[name='age']:checked").val()); //selected item's value
+        info.push(age);
+        lan = parseInt($("input[name='language']:checked").val());
+        info.push(lan);
+        edu = parseInt($("input[name='edu']:checked").val());
+        info.push(edu);
+        owexp = parseInt($("input[name='owexp']:checked").val());
+        info.push(owexp);
+        auexp = parseInt($("input[name='auexp']:checked").val());
+        info.push(auexp);
+        styRA = parseInt($("input[name='styRA']:checked").val());
+        info.push(styRA);
+        austy = parseInt($("input[name='austy']:checked").val());
+        info.push(austy);
+        dl = parseInt($("input[name='dl']:checked").val());
+        info.push(dl);
+        py = parseInt($("input[name='py']:checked").val());
+        info.push(py);
+        ps = parseInt($("input[name='ps']:checked").val());
+        info.push(ps);
+        stn = 0;
+        if ($("input[name='stn']").is(':checked')) {
+            var stn = 5;
+        }
+        info.push(stn);
+        sfn = 0;
+        if ($("input[name='sfn']").is(':checked')) {
+            var sfn = 10;
+        }
+        info.push(sfn);
+        var flag = false;
+        for (var i = 0; i < info.length; i++) {
+            isNaN(info[i]) ? flag = true : sum += info[i];
+        }
+        if (flag) {
+            layer.tips('Please fill all the sections!', '#btn_submit');
+            // alert("error!");
+        } else {
+            layer.open({
+                type: 1,
+                title: 'Calculate Result',
+                area: ['600px', '250px'],
+                shadeClose: true, //点击遮罩关闭
+                content: '<div class="results" id="results"></div>'
+            }); //pupout layer
+            if(sum<60){
+                $('#results').append('<div style="padding:10px 0"><h4>Your migration points are: ' + sum + ' ! <br> Sorry you are not eligible to apply!<h4><div>');
+            }else{
+                $('#results').append('<div style="padding:10px 0"><h4>Your migration points are: ' + sum + ' ! <br> Congratulations you are eligible to apply!<h4><div>');
+            }
+            $('#results').append('<div  style="padding:10px 0"><button type="button" class="btn btn-sm btn-primary" style="margin: 5px 0 20px 0" id="btn_print" onclick="print()">Print</button><div>');
+        }
+    });
+
+    function print() {
+        var x = new ImageDataURL(["-coresrc/img/header.jpg"]);
+        x.oncomplete = function() {
+            var imgs = new Array();
+            console.log("complete");
+            for (key in this.imgdata) {
+                if (this.imgdata[key] == this.emptyobj) //不存在的图片直接忽略
+                    continue;
+                imgs.push({
+                    image: this.imgdata[key],
+                    width: 250,
+                    height: 30
+                }); //pdfmake的图片格式{image:image dataurl}
+            }
+            var docDefinition = {
+                header: imgs[0],
+                content: [
+                    'Your migration points is: ' + sum + '!', {
+                        ul: [
+                            'Age: ' + age,
+                            'Language: ' + lan,
+                            'Educational Qualifications (Australian or recognised overseas): ' + edu,
+                            'Overseas Working Experience: ' + owexp,
+                            'Australian Working Experience: ' + auexp,
+                            'Study/Live In A Regional Area: ' + styRA,
+                            'Recognition of Australian Study: ' + austy,
+                            'Designated Language: ' + dl,
+                            'Professional Year: ' + py,
+                            'Partner Skills: ' + ps,
+                            'Sponsorship by state or territory government: ' + stn,
+                            'Sponsorship by family to regional Australia: ' + sfn,
+                        ]
+                    }
+                ],
+            };
+            // open the PDF in a new window
+            pdfMake.createPdf(docDefinition).open();
+        }
+
+        // // print the PDF
+        // pdfMake.createPdf(docDefinition).print();
+
+        // // download the PDF
+        // pdfMake.createPdf(docDefinition).download('optionalName.pdf');
+    }
+
+    function ImageDataURL(urls) { //urls必须是字符串或字符串数组
+        this.completenum = 0;
+        this.totalnum = 0;
+        this.imgdata = new Array();
+        this.emptyobj = new Object();
+        this.oncomplete = function() {};
+        this.getDataURL = function(url, index) {
+            var c = document.createElement("canvas");
+            var cxt = c.getContext("2d");
+            var img = new Image();
+            var dataurl;
+            var p;
+            p = this;
+            img.src = url;
+            img.onload = function() {
+                var i;
+                var maxwidth = 500;
+                var scale = 1.0;
+                if (img.width > maxwidth) {
+                    scale = maxwidth / img.width;
+                    c.width = maxwidth;
+                    c.height = Math.floor(img.height * scale);
+                } else {
+                    c.width = img.width;
+                    c.height = img.height;
+                }
+                cxt.drawImage(img, 0, 0, c.width, c.height);
+
+                p.imgdata[index] = c.toDataURL('image/jpeg');
+                for (i = 0; i < p.totalnum; ++i) {
+                    if (p.imgdata[i] == null)
+                        break;
+                }
+                if (i == p.totalnum) {
+                    p.oncomplete();
+                }
+            };
+            img.onerror = function() {
+                p.imgdata[index] = p.emptyobj;
+                for (i = 0; i < p.totalnum; ++i) {
+                    if (p.imgdata[i] == null)
+                        break;
+                }
+                if (i == p.totalnum) {
+                    p.oncomplete();
+                }
+            };
+        }
+        if (urls instanceof Array) {
+            this.totalnum = urls.length;
+            this.imgdata = new Array(this.totalnum);
+            for (key in urls) {
+                this.getDataURL(urls[key], key);
+            }
+        } else {
+            this.imgdata = new Array(1);
+            this.totalnum = 1;
+            this.getDataURL(urls, 0);
+        }
+    }
+    </script>
+</body>
+</html>

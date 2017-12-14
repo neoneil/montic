@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BM Points Calculate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Loading Bootstrap -->
+    <link href="-coresrc/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="-coresrc/dist/css/flat-ui.css" rel="stylesheet">
+    <!-- Loading custom UI-->
+    <link href="custom.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="dist/js/vendor/html5shiv.js"></script>
+      <script src="dist/js/vendor/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="-coresrc/dist/js/vendor/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="-coresrc/dist/js/flat-ui.min.js"></script>
+    <script src="-coresrc/assets/js/application.js"></script>
+    <!-- layer js -->
+    <script src="-coresrc/layer/layer.js"></script>
+    <!-- PDFmake-->
+    <script src='-coresrc/build/pdfmake.min.js'></script>
+    <script src='-coresrc/build/vfs_fonts.js'></script>
+
+    <!-- LayerFunction-->
+    <script>
+    $('button:not([type="submit"])').on('click', function(e) {
+        var $this = $(this);
+
+        if (!!$this.attr('data-radiocheck-check')) {
+            var el = $this.attr('data-radiocheck-check');
+            $(el).radiocheck('check');
+        } else if (!!$this.attr('data-radiocheck-uncheck')) {
+            var el = $this.attr('data-radiocheck-uncheck');
+            $(el).radiocheck('uncheck');
+        } else if (!!$this.attr('data-radiocheck-toggle')) {
+            var el = $this.attr('data-radiocheck-toggle');
+            $(el).radiocheck('toggle');
+        } else if (!!$this.attr('data-radiocheck-indeterminate')) {
+            var el = $this.attr('data-radiocheck-indeterminate');
+            $(el).radiocheck('indeterminate');
+        } else if (!!$this.attr('data-radiocheck-determinate')) {
+            var el = $this.attr('data-radiocheck-determinate');
+            $(el).radiocheck('determinate');
+        } else if (!!$this.attr('data-radiocheck-disable')) {
+            var el = $this.attr('data-radiocheck-disable');
+            $(el).radiocheck('disable');
+        } else if (!!$this.attr('data-radiocheck-enable')) {
+            var el = $this.attr('data-radiocheck-enable');
+            $(el).radiocheck('enable');
+        } else if (!!$this.attr('data-radiocheck-destroy')) {
+            var el = $this.attr('data-radiocheck-destroy');
+            $(el).radiocheck('destroy');
+        } else if (!!$this.attr('data-radiocheck-init')) {
+            var el = $this.attr('data-radiocheck-init');
+            $(el).radiocheck();
+        }
+
+        e.preventDefault();
+    });
+    </script>
+
+</head>
+
+<body>
+    <header class="fixed">
+        <div style="text-align: center;">
+            <img src="-coresrc/img/header.jpg" style="height: 50px;">
+        </div>
+    </header>
+    <div class="back_container">
+        <div class="container">
+        <div class="head1">
+            <h3>Business Migration Points Calculate</h1>
+        </div>
+            <!-- form start -->
+            <form role="form">
+                <!-- Age section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Age
+                        <div class="Agequestion">
+                          <div class="help-tip">
+                      			<p>这是一个纯CSS制作，基于CSS3实现的提示信息效果。</p>
+                      		</div>
+                        </div>
+                      </h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age18" value="20" data-radiocheck-toggle="radio"> 18-24
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age25" value="30" data-radiocheck-toggle="radio"> 25-32
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age33" value="25" data-radiocheck-toggle="radio"> 33-39
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age40" value="20" data-radiocheck-toggle="radio"> 40-44
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="age45" value="15" data-radiocheck-toggle="radio"> 45-54
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="age" id="ageother" value="0" data-radiocheck-toggle="radio"> other
+                        </label>
+                    </div>
+                </div>
+                <!-- End of age section -->
+                <!-- Language section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Language</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="IELTS5" value="5" data-radiocheck-toggle="radio"> IELTS 5 on each of 4
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="IELTS7" value="10" data-radiocheck-toggle="radio"> IELTS 7 on each of 4
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="language" id="IELTS-cpt" value="0" data-radiocheck-toggle="radio"> competitive
+                        </label>
+                    </div>
+                </div>
+                <!-- End of language section -->
+                <!-- Educaton Qualificaton section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Education Qualifications</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu1" value="5" data-radiocheck-toggle="radio"> Australian trade certificate, Diploma or Bachelor degree or a Bachelor degree recognised by the Minister
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="edu" id="edu2" value="10" data-radiocheck-toggle="radio"> Bachelor Degree in Business, Science or Technology
+                        </label>
+                    </div>
+                </div>
+                <!-- End of Education Qualification section -->
+                <!-- Business Experience section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Business Experience</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="bexp" id="bexp1" value="10" data-radiocheck-toggle="radio"> Greater than 4 years business experience
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="bexp" id="bexp2" value="15" data-radiocheck-toggle="radio"> Greater than 7 years business experience
+                        </label>
+                    </div>
+                </div>
+                <!-- End of Business Experience section -->
+                <!-- Investment exp section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Investment Experience</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="iexp" id="iexp1" value="10" data-radiocheck-toggle="radio"> Greater than 4 years investment experience
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="iexp" id="iexp2" value="15" data-radiocheck-toggle="radio"> Greater than 7 years investment experience
+                        </label>
+                    </div>
+                </div>
+                <!-- End of Investment exp section -->
+                <!-- personal business section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Net Business and Personal Assets Business</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="pab" id="pab1" value="5" data-radiocheck-toggle="radio"> $800 000
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="pab" id="pab2" value="15" data-radiocheck-toggle="radio"> $1.3 million
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="pab" id="pab3" value="25" data-radiocheck-toggle="radio"> $1.8 million
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="pab" id="pab4" value="35" data-radiocheck-toggle="radio"> $2.25 million
+                        </label>
+                    </div>
+                </div>
+                <!-- End of personal business section -->
+                <!-- business turnover section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Business Turnover</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="btover" id="btover1" value="5" data-radiocheck-toggle="radio"> $500 000
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="btover" id="btover2" value="15" data-radiocheck-toggle="radio"> $1 million
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="btover" id="btover3" value="25" data-radiocheck-toggle="radio"> $1.5 million
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="btover" id="btover4" value="35" data-radiocheck-toggle="radio"> $2 million
+                        </label>
+                    </div>
+                </div>
+                <!-- End of business turnover section -->
+                <!-- Innovation section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>Innovation</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="innovation" id="innovation1" value="15" data-radiocheck-toggle="radio"> Registered patents or registered designs
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="innovation" id="innovation2" value="10" data-radiocheck-toggle="radio"> Evidence of trademarks
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="innovation" id="innovation3" value="5" data-radiocheck-toggle="radio"> Evidence of joint venture agreements
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="innovation" id="innovation4" value="15" data-radiocheck-toggle="radio"> Evidence of export trade
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="innovation" id="innovation5" value="10" data-radiocheck-toggle="radio"> Gazelle business
+                        </label>
+                        <label class="radio">
+                            <input type="radio" data-toggle="radio" name="innovation" id="innovation6" value="10" data-radiocheck-toggle="radio"> Evidence of receipt of grants or venture capital funding
+                        </label>
+                    </div>
+                </div>
+                <!-- End of Innovation section -->
+                <!-- state nomination section -->
+                <div class="section">
+                    <div class="title1">
+                        <h4>State or Territory nomination</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox" for="checkbox1">
+                            <input type="checkbox" data-toggle="checkbox" name="nomination" id="checkbox1" value="10" required> Special endorsement (limited places)
+                        </label>
+                    </div>
+                </div>
+                <!-- End of state nomination section -->
+                <!-- submit button -->
+                <button type="button" class="btn btn-sm btn-primary" style="margin: 5px 0 20px 0" id="btn_submit">Submit</button>
+                <button type="button" class="btn btn-sm btn-primary" style="margin: 5px 0 20px 0" id="btn_submit1">Trail</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- modified js -->
+    <script>
+    var xmlhttp = new XMLHttpRequest();
+
+    var my_data = new Array();
+    var sum = 0;
+    var age = 0;
+    var lan = 0;
+    var edu = 0;
+    var bexp = 0;
+    var iexp = 0;
+    var pab = 0;
+    var btover = 0;
+    var innovation = 0;
+    var nomination = 0;
+
+    $('#btn_submit1').on('click',function(){
+
+      var isChecked = "";
+      isChecked = $('input[type=radio][name=innovation]:checked').attr('id');
+      console.log(isChecked);
+
+    });
+
+
+    $('#btn_submit').on('click', function() {
+        sum = 0;
+        age = 0;
+        lan = 0;
+        edu = 0;
+        bexp = 0;
+        iexp = 0;
+        pab = 0;
+        btover = 0;
+        innovation = 0;
+        nomination = 0;
+
+        var info = new Array();
+        age = parseInt($("input[name='age']:checked").val()); //selected item's value
+        info.push(age);
+        lan = parseInt($("input[name='language']:checked").val());
+        info.push(lan);
+        edu = parseInt($("input[name='edu']:checked").val());
+        info.push(edu);
+        bexp = parseInt($("input[name='bexp']:checked").val());
+        info.push(bexp);
+        iexp = parseInt($("input[name='iexp']:checked").val());
+        info.push(iexp);
+        pab = parseInt($("input[name='pab']:checked").val());
+        info.push(pab);
+        btover = parseInt($("input[name='btover']:checked").val());
+        info.push(btover);
+        innovation = parseInt($("input[name='innovation']:checked").val());
+        info.push(innovation);
+        nomination = 0;
+        if ($("input[name='nomination']").is(':checked')) {
+            var nomination = 10;
+        }
+        info.push(nomination);
+        var flag = false;
+        for (var i = 0; i < info.length; i++) {
+            isNaN(info[i]) ? flag = true : sum += info[i];
+        }
+        if (flag) {
+            layer.tips('Please fill all the sections!', '#btn_submit');
+            // alert("error!");
+        } else {
+            layer.open({
+                type: 1,
+                title: 'Calculate Result',
+                area: ['600px', '250px'],
+                shadeClose: true, //点击遮罩关闭
+                content: '<div class="results" id="results"></div>'
+            }); //pupout layer
+            $('#results').append('<div  style="padding:10px 0"><h4>Your migration points are: ' + sum + ' !<h4><div>');
+            $('#results').append('<div  style="padding:10px 10px"><button type="button" class="btn btn-sm btn-primary" style="margin: 5px 5px 20px 5px" id="btn_print" onclick="print()">Print</button><button type="button" class="btn btn-sm btn-primary" style="margin: 5px 5px 20px 5px" id="btn_detail" onclick="inputDetails()">Detail</button><div>');
+
+        }
+
+          my_data=escape(my_data)+"";
+          $.ajax({
+          url: "trail.php",
+          type: "POST",
+          data:{trans_data:info},
+          //dataType: "json",
+          error: function(){
+             alert('Error loading XML document');
+         },
+         success: function(data,status){
+             //alert(unescape(data));
+         }
+    });
+
+    });
+
+    function inputDetails()
+    {
+      layer.open({
+          type: 1,
+          title: 'Your details can get more service from us.',
+          area: ['800px', '350px'],
+          shadeClose: true, //点击遮罩关闭
+          content: '<div class="details" id="details" ></div>'
+      }); //pupout layer
+      $('#details').append('<div class = "datab"><form action="insert.php" method = "post"><label for="fname">First Name</label><input type="text" id="fname" name="firstname" placeholder="Your first name.."><label for="lname">Last Name</label><input type="text" id="lname" name="lastname" placeholder="Your last name.."><label for="Uage">Age</label><input type="text" id="Uage" name="userage" placeholder="Your age.."><label for="Utelephone">Telephone</label><input type="text" id="Utelephone" name="usertelephone" placeholder="Your telephone number.."><label for="Uemail">Email</label><input type="text" id="Uemail" name="useremail" placeholder="Your Email.."><label for="country">Country</label><select id="country" name="country"><option value="australia">Australia</option><option value="china">China</option><option value="usa">USA</option></select><input type="submit" value="Submit"></form></div>');
+
+
+
+    }
+    function backUp()
+    {
+
+    }
+
+
+
+
+    function print() {
+        var x = new ImageDataURL(["img/header.jpg"]);
+        x.oncomplete = function() {
+            var imgs = new Array();
+            console.log("complete");
+            for (key in this.imgdata) {
+                if (this.imgdata[key] == this.emptyobj) //不存在的图片直接忽略
+                    continue;
+                imgs.push({
+                    image: this.imgdata[key],
+                    width: 250,
+                    height: 30
+                }); //pdfmake的图片格式{image:image dataurl}
+            }
+            var docDefinition = {
+                header: imgs[0],
+                content: [
+                    'Your migration points is: ' + sum + '!', {
+                        ul: [
+                            'Age: ' + age,
+                            'Language: ' + lan,
+                            'Education: ' + edu,
+                            'Business Experience: ' + bexp,
+                            'Investment Experience: ' + iexp,
+                            'Net Business and Personal Assets Business: ' + pab,
+                            'Business Turnover: ' + btover,
+                            'Innovation: ' + innovation,
+                        ]
+                    }
+                ],
+            };
+            // open the PDF in a new window
+            pdfMake.createPdf(docDefinition).open();
+        }
+
+        // // print the PDF
+        // pdfMake.createPdf(docDefinition).print();
+
+        // // download the PDF
+        // pdfMake.createPdf(docDefinition).download('optionalName.pdf');
+    }
+
+    function ImageDataURL(urls) { //urls必须是字符串或字符串数组
+        this.completenum = 0;
+        this.totalnum = 0;
+        this.imgdata = new Array();
+        this.emptyobj = new Object();
+        this.oncomplete = function() {};
+        this.getDataURL = function(url, index) {
+            var c = document.createElement("canvas");
+            var cxt = c.getContext("2d");
+            var img = new Image();
+            var dataurl;
+            var p;
+            p = this;
+            img.src = url;
+            img.onload = function() {
+                var i;
+                var maxwidth = 500;
+                var scale = 1.0;
+                if (img.width > maxwidth) {
+                    scale = maxwidth / img.width;
+                    c.width = maxwidth;
+                    c.height = Math.floor(img.height * scale);
+                } else {
+                    c.width = img.width;
+                    c.height = img.height;
+                }
+                cxt.drawImage(img, 0, 0, c.width, c.height);
+
+                p.imgdata[index] = c.toDataURL('image/jpeg');
+                for (i = 0; i < p.totalnum; ++i) {
+                    if (p.imgdata[i] == null)
+                        break;
+                }
+                if (i == p.totalnum) {
+                    p.oncomplete();
+                }
+            };
+            img.onerror = function() {
+                p.imgdata[index] = p.emptyobj;
+                for (i = 0; i < p.totalnum; ++i) {
+                    if (p.imgdata[i] == null)
+                        break;
+                }
+                if (i == p.totalnum) {
+                    p.oncomplete();
+                }
+            };
+        }
+        if (urls instanceof Array) {
+            this.totalnum = urls.length;
+            this.imgdata = new Array(this.totalnum);
+            for (key in urls) {
+                this.getDataURL(urls[key], key);
+            }
+        } else {
+            this.imgdata = new Array(1);
+            this.totalnum = 1;
+            this.getDataURL(urls, 0);
+        }
+    }
+    </script>
+
+
+
+
+
+</body>
+
+</html>
